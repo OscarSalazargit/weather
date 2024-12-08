@@ -1,0 +1,49 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 60px 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header  header header  header"
+    "now now map  map"
+    "graph1  graph1 graph1 graph1"
+    
+}
+body {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.header {
+  grid-area: header;
+  text-align: center;
+  
+  height: 100px;
+  overflow: hidden;
+}
+.elmap{
+  grid-area: map;
+  margin-top: 100px;
+
+}
+.map {
+  height: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.now {
+  grid-area: now;
+}
+
+.graph1 {
+  grid-area: graph1;
+}
+
+
+
+.section__map {
+  display: flex;
+  /* flex-direction: row;
+   justify-content: space-around; */
+}
+
