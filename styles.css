@@ -1,49 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 60px 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "header  header header  header"
-    "now now map  map"
-    "graph1  graph1 graph1 graph1"
-    
+  "header header now"
+  "now map map"
+  "graph1 graph1 graph1";
 }
-body {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
+
 .header {
   grid-area: header;
-  text-align: center;
-  
-  height: 100px;
-  overflow: hidden;
-}
-.elmap{
-  grid-area: map;
-  margin-top: 100px;
-
-}
-.map {
-  height: 400px;
-  width: 100%;
-  margin: 0 auto;
 }
 
 .now {
   grid-area: now;
 }
 
+.map {
+  grid-area: map;
+  width: 600px;
+  height: 300px;
+  overflow: hidden;
+}
+.section__map{
+  width: 600px;
+  height: 300px;
+  overflow: hidden;
+}
 .graph1 {
   grid-area: graph1;
 }
 
+.elTiempo {
+  max-width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background-color: #488bff;
+  border-radius: 10px;
+}
+.elTiempo__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: rgb(216, 216, 216);
+}
 
+.elTiempo__result {
+  color: rgb(35, 34, 34);
+  margin-bottom: 1rem;
+}
+.alert-error {
+  color: red;
+  background-color: white;
+  text-align: center;
+}
 
 .section__map {
   display: flex;
   /* flex-direction: row;
-   justify-content: space-around; */
+  justify-content: space-around; */
 }
 
+.map__title {
+  text-align: center;
+}
+.map {
+  height: 600px;
+  width: 100%;
+  margin: 0 auto;
+}

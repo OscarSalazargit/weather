@@ -37,28 +37,11 @@ async function getWeatherData(lat, lon) {
     //grafico
     const ctx = document.getElementById("temp35");
 
-    /*Transformar formato tiempo */
-    // Timestamp Unix en segundos
-    function pasaTiempo(time){
-      let timestamp = time;      
-      // Crear un objeto Date con el timestamp (en milisegundos, por eso multiplicamos por 1000)
-      let date = new Date(timestamp * 1000);      
-      // Obtener las horas, minutos y segundos
-      let day = date.getDate();
-      let hours = date.getHours();
-      let minutes = date.getMinutes();
-      let seconds = date.getSeconds();      
-      // Mostrar el tiempo en formato HH:MM:SS
-      return `Día ${day} a las ${hours}:${minutes}:${seconds}`;
-    }
-
-
     var etiquetas = [];
     var valores = [];
     var sensacion = [];
     for (var i = 0; i < json.cnt; i++) {
-      // etiquetas.push(json.list[i].dt_txt);
-      etiquetas.push(pasaTiempo(json.list[i].dt));
+      etiquetas.push(json.list[i].dt_txt);
       valores.push(json.list[i].main.temp);
       sensacion.push(json.list[i].main.feels_like);
     }
@@ -69,12 +52,12 @@ async function getWeatherData(lat, lon) {
         labels: etiquetas,
         datasets: [
           {
-            label: "Temperatura Real",
+            label: "# of Votes",
             data: valores,
             borderWidth: 1,
           },
           {
-            label: "Sensación Termica",
+            label: "# of Votes",
             data: sensacion,
             borderWidth: 1,
           },
@@ -109,13 +92,13 @@ function geoSucess(pos) {
 }
 
 function  showMap(lat,lon){ 
+  map.invalidateSize();
   mapa.setView((lat,lon),zoom);
 }
 function onMapClick(e){
-  lat = e.latlng.lat;
-  lon = e.latlng.lng;
-  marker.setLatlng(new L.latlng(lat,lon).openPopup() )
-  
+  lat = e.lating.lat;
+  lon = e.lating.lng;
+  marker.setLating(new L.lating(lat,lon).openPopup() )
 }
 
 function geoError(err) {
@@ -136,7 +119,7 @@ function mostrarUbicacionEnMapa(lat, lon) {
 
   L.marker([lat, lon])
     .addTo(map)
-    .bindPopup("Estas aquí.<br> Pudiendo estar en Canarias.")
+    .bindPopup("Viva Murcia!!.<br> Ponme un 10!!.")
     .openPopup();
 }
 
