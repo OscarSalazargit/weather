@@ -6,7 +6,7 @@ let lon = 82.8269445;
 var zoom = 13;
 
 var mapa = L.map('mapa').setView((lat,lon),zoom);
-var marker = L.marker(lat,lon).add(mapa)
+var marker = L.marker[(lat,lon)].addTo(mapa)
     .bindPopup("Oscar guapo")
     .openPopup();
 
@@ -21,9 +21,10 @@ mapa.on("click", onMapClick);
 
 // let url = "https://api.openweathermap.org/data/2.5/weather?lat=37.9917394&lon=-1.1600667&appid=bbc924beff0322045dd777be98a06d40&units=metric"
 
-async function getWeatherData(lat, lon) {
-  
-  let url = ` https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=bbc924beff0322045dd777be98a06d40&units=metric`;
+async function getWeatherData(ciudad) {
+  // lat, lon
+  let url = `https://api.openweathermap.org/data/2.5/forecast?q=${ciudad}&appid=bbc924beff0322045dd777be98a06d40&units=metric`;
+  // let url = ` https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=bbc924beff0322045dd777be98a06d40&units=metric`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -36,7 +37,7 @@ async function getWeatherData(lat, lon) {
 
     //grafico
     const ctx = document.getElementById("temp35");
-
+    
     var etiquetas = [];
     var valores = [];
     var sensacion = [];
@@ -52,12 +53,12 @@ async function getWeatherData(lat, lon) {
         labels: etiquetas,
         datasets: [
           {
-            label: "# of Votes",
+            label: "Temperatura",
             data: valores,
             borderWidth: 1,
           },
           {
-            label: "# of Votes",
+            label: "Sensacion",
             data: sensacion,
             borderWidth: 1,
           },
@@ -96,9 +97,10 @@ function  showMap(lat,lon){
   mapa.setView((lat,lon),zoom);
 }
 function onMapClick(e){
-  lat = e.lating.lat;
-  lon = e.lating.lng;
-  marker.setLating(new L.lating(lat,lon).openPopup() )
+  lat = e.latlng.lat;
+  lon = e.latlng.lng;
+  marker.setLating(new L.lating(lat,lon).openPopup() );
+  getWeatherData(lat, lon);
 }
 
 function geoError(err) {

@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>el tiempo</title>   
+    <title>el tiempo</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <!-- MAPAS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin="" defer></script>
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+    <script src="elTiempo.js" defer></script>
     <script src="app.js" defer></script>
-    <script src="elTiempo.js"defer></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin="" defer/>
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" defer />
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    
+    <div class="container">
         <div class="header">
             <section class="elTiempo">
                 <h1 class="elTiempo__title">Buscador del Tiempo</h1>
@@ -35,24 +35,24 @@
                 </form>
             </section>
         </div>
-        <div class="now">
+        <!-- <div class="now">
             <h1 class="map__title">EL tiempo</h1>
-        </div>
-        <div class="map">
+        </div> -->
+        <div class="map-container">
             <div class="section__map">
-                <div id="map" class="map"></div>
-                <div class="map__text">
-                    
-                </div>
+                <div id="map"></div>
+                <div class="map__text"></div>
             </div>
+    </div>
+    <div class="graph1">
+        <div>
+            <canvas id="temp35"></canvas>
         </div>
-        <div class="graph1">
-            <div>
-                <canvas id="temp35"></canvas>
-              </div>
-        </div>
+    </div>
 
-    
+
+
 
 </body>
+
 </html>

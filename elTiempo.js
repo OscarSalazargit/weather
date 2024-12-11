@@ -6,7 +6,7 @@ const buscar = document.getElementById("buscar");
 const error = document.getElementById("error");
 
 buscar.addEventListener("click",()=>{
-
+    result.innerHTML ="";
     
     if( ciudad.value === ""){
         mostrarError("Tienes que introducir una ciudad");
@@ -66,7 +66,9 @@ function mostrarTiempo(data){
     console.log("t_max :"+temp_max);
     console.log("arreglo :"+arr.icon);
     
-    
+    const linea = document.getElementById("temp35");
+    linea.innerHTML = "";
+    getWeatherData(name)
     
 }
 
@@ -83,9 +85,6 @@ function mostrarError(elError){
     },3000);
     
 }
-
-
-
 
 
 
